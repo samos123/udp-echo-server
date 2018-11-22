@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: udp-echo-server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: udp-echo-server
+    spec:
+      containers:
+      - name: udp-echo-server
+        image: samos123/udp-echo-server
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 33333
+          protocol: UDP

@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: udp-echo-server
+spec:
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  selector:
+    name: udp-echo-server
+  ports:
+  - name: udp
+    protocol: UDP
+    port: 33333
+    targetPort: 33333
